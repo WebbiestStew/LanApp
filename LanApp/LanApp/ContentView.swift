@@ -1,5 +1,6 @@
 struct PinLockView: View {
     @Binding var isUnlocked: Bool
+    @Binding var accentColor: Color
     @State private var pin: String = ""
     private let correctPin = "1234"
 
@@ -32,12 +33,13 @@ struct PinLockView: View {
                     .foregroundColor(.black)
                     .padding()
                     .frame(maxWidth: 200)
-                    .background(Color.green)
+                    .background(accentColor)
                     .cornerRadius(10)
             }
         }
         .padding()
-        .background(Color.black.ignoresSafeArea())
+        .background(Color.black)
+        .ignoresSafeArea()
     }
 }
 //
@@ -93,6 +95,7 @@ struct MainView: View {
     @Binding var balance: Double
     @Binding var recentTransactions: [String]
     @State private var selectedRecipient: String?
+    @Binding var accentColor: Color
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
@@ -135,7 +138,7 @@ struct MainView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(
                                     LinearGradient(
-                                        gradient: Gradient(colors: [Color.purple, Color.blue]),
+                                        gradient: Gradient(colors: [accentColor, Color.blue]),
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
                                     )
@@ -153,7 +156,7 @@ struct MainView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(
                                     LinearGradient(
-                                        gradient: Gradient(colors: [Color.purple, Color.blue]),
+                                        gradient: Gradient(colors: [accentColor, Color.blue]),
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
                                     )
@@ -229,7 +232,7 @@ struct MainView: View {
         .background(Color.black)
         .preferredColorScheme(.dark)
         .sheet(item: $selectedRecipient) { recipient in
-            QuickSendView(recipient: recipient, isAsk: false, transactionLog: $recentTransactions, balance: $balance)
+            QuickSendView(recipient: recipient, isAsk: false, transactionLog: $recentTransactions, balance: $balance, accentColor: $accentColor)
                 .onDisappear {
                     print("Dismissed QuickSendView, recentTransactions: \(recentTransactions)")
                 }
@@ -256,6 +259,7 @@ struct AnimatedTabIcon: View {
 
 // struct ContentView is intentionally not marked with @main.
 struct ContentView: View {
+    @State private var accentColor: Color = .green
     @State private var showSplash = true
     @State private var transactionLog: [String] = [
         "You sent $20.00 to Hector",
@@ -288,42 +292,47 @@ struct ContentView: View {
         ZStack {
             if isUnlocked {
                 ZStack {
-                    Color.black
+                    Color.black.ignoresSafeArea()
                     if showSplash {
                         SplashView(showSplash: $showSplash)
                     } else {
                         TabView(selection: $selectedTab) {
-                            MainView(balance: $balance, recentTransactions: $transactionLog)
+                            MainView(balance: $balance, recentTransactions: $transactionLog, accentColor: $accentColor)
                                 .tabItem {
                                     AnimatedTabIcon(icon: "creditcard", isSelected: selectedTab == 0)
                                 }
                                 .tag(0)
 
-                            ContactsView(transactionLog: $transactionLog, balance: $balance)
+                            ContactsView(transactionLog: $transactionLog, balance: $balance, accentColor: $accentColor)
                                 .tabItem {
                                     AnimatedTabIcon(icon: "person.2.fill", isSelected: selectedTab == 1)
                                 }
                                 .tag(1)
 
-                            HistoryView(transactions: transactionLog)
+                            HistoryView(transactions: transactionLog, accentColor: $accentColor)
                                 .tabItem {
                                     AnimatedTabIcon(icon: "clock.arrow.circlepath", isSelected: selectedTab == 2)
                                 }
                                 .tag(2)
 
-                            SettingsView()
+                            SettingsView(accentColor: $accentColor)
                                 .tabItem {
                                     AnimatedTabIcon(icon: "gearshape.fill", isSelected: selectedTab == 3)
                                 }
                                 .tag(3)
                         }
-                        .accentColor(.green)
+                        .accentColor(accentColor)
                     }
                 }
                 .ignoresSafeArea()
                 .preferredColorScheme(.dark)
             } else {
-                PinLockView(isUnlocked: $isUnlocked)
+                PinLockView(isUnlocked: $isUnlocked, accentColor: $accentColor)
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("ChangeAccentColor"))) { notification in
+            if let newColor = notification.object as? Color {
+                accentColor = newColor
             }
         }
     }
@@ -345,7 +354,7 @@ struct SplashView: View {
             Text("$")
                 .font(.system(size: 100))
                 .fontWeight(.bold)
-                .foregroundColor(.green)
+                .foregroundColor(.accentColor)
                 .scaleEffect(scale)
                 .opacity(opacity)
                 .onAppear {
@@ -380,6 +389,7 @@ struct QuickSendView: View {
     @State private var showConfirmation = false
     @State private var isProcessing = false
     @State private var isTyping = false
+    @Binding var accentColor: Color
 
     // Define the keypad rows as a constant outside the body
     let keypad: [[String]] = [
@@ -421,17 +431,17 @@ struct QuickSendView: View {
                                 Button(action: {
                                     // Unified haptic and sound for all keys
                                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                                    AudioServicesPlaySystemSound(1104) // iOS keyboard tap
-
                                     if item == "⌫" {
                                         isTyping = true
                                         handleInput(item)
+                                        AudioServicesPlaySystemSound(1104) // iOS keyboard tap
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                                             isTyping = false
                                         }
                                     } else if item == "." {
                                         isTyping = true
                                         handleInput(item)
+                                        AudioServicesPlaySystemSound(1104) // iOS keyboard tap
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                                             isTyping = false
                                         }
@@ -439,6 +449,7 @@ struct QuickSendView: View {
                                         // item is digit 0-9
                                         isTyping = true
                                         amount += item
+                                        AudioServicesPlaySystemSound(1104) // iOS keyboard tap
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                                             isTyping = false
                                         }
@@ -472,7 +483,6 @@ struct QuickSendView: View {
                 Button(action: {
                     guard !isProcessing else { return }
                     isProcessing = true
-
                     if let amt = Double(amount), !amt.isZero {
                         let entry = isAsk
                             ? "\(recipient) sent you $\(String(format: "%.2f", amt))\(note.isEmpty ? "" : "|note:\(note)")"
@@ -485,10 +495,8 @@ struct QuickSendView: View {
                             balance -= amt
                         }
                     }
-
                     let feedback = UINotificationFeedbackGenerator()
                     feedback.notificationOccurred(.success)
-
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
                         withAnimation {
                             showConfirmation = true
@@ -514,7 +522,7 @@ struct QuickSendView: View {
                             .padding()
                             .background(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [Color.purple, Color.blue]),
+                                    gradient: Gradient(colors: [accentColor, Color.blue]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
@@ -523,7 +531,7 @@ struct QuickSendView: View {
                     }
                 }
                 .disabled(isProcessing)
-                .padding(.horizontal, 24)
+                .padding(.horizontal)
                 .padding(.top, 10)
             }
             .opacity(showConfirmation ? 0 : 1)
@@ -534,7 +542,7 @@ struct QuickSendView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .resizable()
                         .frame(width: 100, height: 100)
-                        .foregroundColor(.green)
+                        .foregroundColor(.accentColor)
                         .scaleEffect(showConfirmation ? 1.2 : 0.5)
                         .animation(.interpolatingSpring(stiffness: 100, damping: 10), value: showConfirmation)
 
@@ -546,7 +554,8 @@ struct QuickSendView: View {
                 .transition(.opacity)
             }
         }
-        .background(Color.black.ignoresSafeArea())
+        .background(Color.black)
+        .ignoresSafeArea()
         //.navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -560,7 +569,7 @@ struct QuickSendView: View {
                             .foregroundColor(.white)
                     }
                     .padding(8)
-                    .background(Color.green)
+                    .background(accentColor)
                     .cornerRadius(10)
                 }
             }
@@ -594,6 +603,7 @@ struct ContactsView: View {
     @Binding var transactionLog: [String]
     @Binding var balance: Double
     @State private var isLoading = true
+    @Binding var accentColor: Color
 
     var body: some View {
         NavigationStack {
@@ -602,10 +612,10 @@ struct ContactsView: View {
             } else {
                 List {
                     Section(header: Text("Me").foregroundColor(.white)) {
-                        NavigationLink(destination: ProfileView(name: myName, username: myUsername, isMe: true, transactionLog: $transactionLog, balance: $balance)) {
+                        NavigationLink(destination: ProfileView(name: myName, username: myUsername, isMe: true, transactionLog: $transactionLog, balance: $balance, accentColor: $accentColor)) {
                             HStack {
                                 Circle()
-                                    .fill(Color.green)
+                                    .fill(accentColor)
                                     .frame(width: 40, height: 40)
                                 VStack(alignment: .leading) {
                                     Text(myName)
@@ -622,10 +632,10 @@ struct ContactsView: View {
 
                     Section(header: Text("Contacts").foregroundColor(.white)) {
                         ForEach(contacts, id: \.self) { contact in
-                            NavigationLink(destination: ProfileView(name: contact, username: "\(contact.lowercased())", isMe: false, transactionLog: .constant(transactionLog), balance: $balance)) {
+                            NavigationLink(destination: ProfileView(name: contact, username: "\(contact.lowercased())", isMe: false, transactionLog: .constant(transactionLog), balance: $balance, accentColor: $accentColor)) {
                                 HStack {
                                     Circle()
-                                        .fill(Color.green)
+                                        .fill(accentColor)
                                         .frame(width: 40, height: 40)
                                     VStack(alignment: .leading) {
                                         Text(contact)
@@ -655,7 +665,7 @@ struct ContactsView: View {
                                     .padding()
                                 Spacer()
                             }
-                            .background(Color.green)
+                            .background(accentColor)
                             .cornerRadius(10)
                         }
                         .listRowBackground(Color.clear)
@@ -666,9 +676,9 @@ struct ContactsView: View {
                 .navigationTitle("Contacts")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: AddContactView()) {
+                        NavigationLink(destination: AddContactView(accentColor: $accentColor)) {
                             Image(systemName: "plus")
-                                .foregroundColor(.green)
+                                .foregroundColor(.accentColor)
                         }
                     }
                 }
@@ -698,6 +708,7 @@ struct ProfileView: View {
     var isMe: Bool = false
     @Binding var transactionLog: [String]
     @Binding var balance: Double
+    @Binding var accentColor: Color
 
     @State private var profileImage: Image? = nil
     @State private var showingImagePicker = false
@@ -721,7 +732,7 @@ struct ProfileView: View {
                         .clipShape(Circle())
                 } else {
                     Circle()
-                        .fill(Color.green)
+                        .fill(accentColor)
                         .frame(width: 100, height: 100)
                         .overlay(Text(name.prefix(1))
                             .font(.largeTitle)
@@ -760,26 +771,26 @@ struct ProfileView: View {
                 }
                 if !transactionLog.filter({ $0.contains(name) }).isEmpty {
                     Image(systemName: "checkmark.seal.fill")
-                        .foregroundColor(.green)
+                        .foregroundColor(.accentColor)
                 }
             }
 
             HStack(spacing: 20) {
-                NavigationLink(destination: QuickSendView(recipient: name, isAsk: true, transactionLog: isMe ? $transactionLog : .constant([]), balance: $balance)) {
+                NavigationLink(destination: QuickSendView(recipient: name, isAsk: true, transactionLog: isMe ? $transactionLog : .constant([]), balance: $balance, accentColor: $accentColor)) {
                     Text("Ask")
                         .foregroundColor(.black)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.green)
+                        .background(accentColor)
                         .cornerRadius(10)
                 }
 
-                NavigationLink(destination: QuickSendView(recipient: name, isAsk: false, transactionLog: isMe ? $transactionLog : .constant([]), balance: $balance)) {
+                NavigationLink(destination: QuickSendView(recipient: name, isAsk: false, transactionLog: isMe ? $transactionLog : .constant([]), balance: $balance, accentColor: $accentColor)) {
                     Text("Deposit")
                         .foregroundColor(.black)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.green)
+                        .background(accentColor)
                         .cornerRadius(10)
                 }
             }
@@ -830,6 +841,7 @@ struct AddContactView: View {
     @Environment(\.dismiss) var dismiss
     @State private var name: String = ""
     @State private var username: String = ""
+    @Binding var accentColor: Color
 
     var body: some View {
         VStack(spacing: 20) {
@@ -858,7 +870,7 @@ struct AddContactView: View {
                 Text("Save")
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.green)
+                    .background(accentColor)
                     .cornerRadius(10)
                     .foregroundColor(.black)
             }
@@ -874,6 +886,7 @@ struct AddContactView: View {
 struct HistoryView: View {
     let transactions: [String]
     @State private var selectedFilter: String = "All"
+    @Binding var accentColor: Color
 
     var body: some View {
         NavigationStack {
@@ -994,6 +1007,7 @@ struct TransactionDetailView: View {
 }
 
 struct SettingsView: View {
+    @Binding var accentColor: Color
     var body: some View {
         VStack(spacing: 20) {
             Text("Settings")
@@ -1001,8 +1015,25 @@ struct SettingsView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
 
-            Text("This tab is under construction.")
+            Text("Select Accent Color")
                 .foregroundColor(.gray)
+
+            HStack(spacing: 16) {
+                Button(action: {
+                    NotificationCenter.default.post(name: Notification.Name("ChangeAccentColor"), object: Color.green)
+                }) {
+                    Circle()
+                        .fill(Color.green)
+                        .frame(width: 40, height: 40)
+                }
+                Button(action: {
+                    NotificationCenter.default.post(name: Notification.Name("ChangeAccentColor"), object: Color.purple)
+                }) {
+                    Circle()
+                        .fill(Color.purple)
+                        .frame(width: 40, height: 40)
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black)
