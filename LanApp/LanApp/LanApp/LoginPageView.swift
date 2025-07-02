@@ -1,9 +1,11 @@
 import SwiftUI
+import Supabase
 
 struct LoginPageView: View {
     @Binding var isLoggedIn: Bool
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var showRegister = false
 
     var body: some View {
         VStack(spacing: 20) {
@@ -27,7 +29,14 @@ struct LoginPageView: View {
 
             // Sign In Button
             Button(action: {
-                // Handle sign in
+                Task {
+                    do {
+                        let session = try await SupabaseManager.shared.client.auth.signIn(email: email, password: password)
+                        isLoggedIn = true
+                    } catch {
+                        print("Error signing in: \(error.localizedDescription)")
+                    }
+                }
             }) {
                 Text("Sign In")
                     .foregroundColor(.white)
@@ -59,8 +68,13 @@ struct LoginPageView: View {
             }
 
             // Navigation
-            Button("Go to Register Form") { }
-                .foregroundColor(.purple)
+            Button("Go to Register Form") {
+                showRegister = true
+            }
+            .foregroundColor(.green)
+            .sheet(isPresented: $showRegister) {
+                RegisterView()
+            }
 
             Button("Forgot Password?") { }
                 .foregroundColor(.purple)

@@ -36,6 +36,7 @@
 		C40F72922DF79F750060D23B /* LanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40F72A22DF79F770060D23B /* LanAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40F72AC2DF79F770060D23B /* LanAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4B9B1902E1499C5007B5456 /* LanApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = LanApp.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -126,6 +127,13 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4B9B19B2E1499C5007B5456 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +251,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C40F72932DF79F750060D23B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C4B9B19B2E1499C5007B5456 /* Products */;
+					ProjectRef = C4B9B1902E1499C5007B5456 /* LanApp.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C40F72912DF79F750060D23B /* LanApp */,
