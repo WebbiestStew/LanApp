@@ -32,7 +32,7 @@ struct LoginPageView: View {
                 Task {
                     do {
                         let session = try await SupabaseManager.shared.client.auth.signIn(email: email, password: password)
-                        isLoggedIn = true
+                        isLoggedIn = session.user != nil
                     } catch {
                         print("Error signing in: \(error.localizedDescription)")
                     }
