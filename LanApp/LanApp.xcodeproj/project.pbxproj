@@ -1,0 +1,652 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C40AD8D42E135B76007EAA8C /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = C40AD8D32E135B76007EAA8C /* Auth */; };
+		C40AD8D62E135B76007EAA8C /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = C40AD8D52E135B76007EAA8C /* Functions */; };
+		C40AD8D82E135B76007EAA8C /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = C40AD8D72E135B76007EAA8C /* PostgREST */; };
+		C40AD8DA2E135B76007EAA8C /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = C40AD8D92E135B76007EAA8C /* Realtime */; };
+		C40AD8DC2E135B76007EAA8C /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = C40AD8DB2E135B76007EAA8C /* Storage */; };
+		C4B079F22E135EA30049DE8A /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = C4B079F12E135EA30049DE8A /* Supabase */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C40F72A32DF79F770060D23B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C40F728A2DF79F750060D23B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C40F72912DF79F750060D23B;
+			remoteInfo = LanApp;
+		};
+		C40F72AD2DF79F770060D23B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C40F728A2DF79F750060D23B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C40F72912DF79F750060D23B;
+			remoteInfo = LanApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C40F72922DF79F750060D23B /* LanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40F72A22DF79F770060D23B /* LanAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40F72AC2DF79F770060D23B /* LanAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C44AE98F2DFAA83500F90096 /* Exceptions for "LanApp" folder in "LanApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C40F72912DF79F750060D23B /* LanApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C40F72942DF79F750060D23B /* LanApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C44AE98F2DFAA83500F90096 /* Exceptions for "LanApp" folder in "LanApp" target */,
+			);
+			path = LanApp;
+			sourceTree = "<group>";
+		};
+		C40F72A52DF79F770060D23B /* LanAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LanAppTests;
+			sourceTree = "<group>";
+		};
+		C40F72AF2DF79F770060D23B /* LanAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LanAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C40F728F2DF79F750060D23B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C40AD8D82E135B76007EAA8C /* PostgREST in Frameworks */,
+				C40AD8D62E135B76007EAA8C /* Functions in Frameworks */,
+				C4B079F22E135EA30049DE8A /* Supabase in Frameworks */,
+				C40AD8D42E135B76007EAA8C /* Auth in Frameworks */,
+				C40AD8DC2E135B76007EAA8C /* Storage in Frameworks */,
+				C40AD8DA2E135B76007EAA8C /* Realtime in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40F729F2DF79F770060D23B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40F72A92DF79F770060D23B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C40F72892DF79F750060D23B = {
+			isa = PBXGroup;
+			children = (
+				C40F72942DF79F750060D23B /* LanApp */,
+				C40F72A52DF79F770060D23B /* LanAppTests */,
+				C40F72AF2DF79F770060D23B /* LanAppUITests */,
+				C4B079F02E135EA30049DE8A /* Frameworks */,
+				C40F72932DF79F750060D23B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C40F72932DF79F750060D23B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C40F72922DF79F750060D23B /* LanApp.app */,
+				C40F72A22DF79F770060D23B /* LanAppTests.xctest */,
+				C40F72AC2DF79F770060D23B /* LanAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4B079F02E135EA30049DE8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C40F72912DF79F750060D23B /* LanApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C40F72B62DF79F770060D23B /* Build configuration list for PBXNativeTarget "LanApp" */;
+			buildPhases = (
+				C40F728E2DF79F750060D23B /* Sources */,
+				C40F728F2DF79F750060D23B /* Frameworks */,
+				C40F72902DF79F750060D23B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C40F72942DF79F750060D23B /* LanApp */,
+			);
+			name = LanApp;
+			packageProductDependencies = (
+				C40AD8D32E135B76007EAA8C /* Auth */,
+				C40AD8D52E135B76007EAA8C /* Functions */,
+				C40AD8D72E135B76007EAA8C /* PostgREST */,
+				C40AD8D92E135B76007EAA8C /* Realtime */,
+				C40AD8DB2E135B76007EAA8C /* Storage */,
+				C4B079F12E135EA30049DE8A /* Supabase */,
+			);
+			productName = LanApp;
+			productReference = C40F72922DF79F750060D23B /* LanApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C40F72A12DF79F770060D23B /* LanAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C40F72B92DF79F770060D23B /* Build configuration list for PBXNativeTarget "LanAppTests" */;
+			buildPhases = (
+				C40F729E2DF79F770060D23B /* Sources */,
+				C40F729F2DF79F770060D23B /* Frameworks */,
+				C40F72A02DF79F770060D23B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C40F72A42DF79F770060D23B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C40F72A52DF79F770060D23B /* LanAppTests */,
+			);
+			name = LanAppTests;
+			packageProductDependencies = (
+			);
+			productName = LanAppTests;
+			productReference = C40F72A22DF79F770060D23B /* LanAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C40F72AB2DF79F770060D23B /* LanAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C40F72BC2DF79F770060D23B /* Build configuration list for PBXNativeTarget "LanAppUITests" */;
+			buildPhases = (
+				C40F72A82DF79F770060D23B /* Sources */,
+				C40F72A92DF79F770060D23B /* Frameworks */,
+				C40F72AA2DF79F770060D23B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C40F72AE2DF79F770060D23B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C40F72AF2DF79F770060D23B /* LanAppUITests */,
+			);
+			name = LanAppUITests;
+			packageProductDependencies = (
+			);
+			productName = LanAppUITests;
+			productReference = C40F72AC2DF79F770060D23B /* LanAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C40F728A2DF79F750060D23B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					C40F72912DF79F750060D23B = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					C40F72A12DF79F770060D23B = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = C40F72912DF79F750060D23B;
+					};
+					C40F72AB2DF79F770060D23B = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = C40F72912DF79F750060D23B;
+					};
+				};
+			};
+			buildConfigurationList = C40F728D2DF79F750060D23B /* Build configuration list for PBXProject "LanApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C40F72892DF79F750060D23B;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C40AD8D22E135B76007EAA8C /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C40F72932DF79F750060D23B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C40F72912DF79F750060D23B /* LanApp */,
+				C40F72A12DF79F770060D23B /* LanAppTests */,
+				C40F72AB2DF79F770060D23B /* LanAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C40F72902DF79F750060D23B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40F72A02DF79F770060D23B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40F72AA2DF79F770060D23B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C40F728E2DF79F750060D23B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40F729E2DF79F770060D23B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40F72A82DF79F770060D23B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C40F72A42DF79F770060D23B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C40F72912DF79F750060D23B /* LanApp */;
+			targetProxy = C40F72A32DF79F770060D23B /* PBXContainerItemProxy */;
+		};
+		C40F72AE2DF79F770060D23B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C40F72912DF79F750060D23B /* LanApp */;
+			targetProxy = C40F72AD2DF79F770060D23B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C40F72B42DF79F770060D23B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = A7299NQ925;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C40F72B52DF79F770060D23B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = A7299NQ925;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C40F72B72DF79F770060D23B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LanApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/LanApp/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wafflessyrup.LanApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				key_privacy_face_ID_Usage_Description = "We use Face ID to authenticate when logging in the app";
+			};
+			name = Debug;
+		};
+		C40F72B82DF79F770060D23B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LanApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/LanApp/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wafflessyrup.LanApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				key_privacy_face_ID_Usage_Description = "We use Face ID to authenticate when logging in the app";
+			};
+			name = Release;
+		};
+		C40F72BA2DF79F770060D23B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wafflessyrup.LanAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LanApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LanApp";
+			};
+			name = Debug;
+		};
+		C40F72BB2DF79F770060D23B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wafflessyrup.LanAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LanApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LanApp";
+			};
+			name = Release;
+		};
+		C40F72BD2DF79F770060D23B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wafflessyrup.LanAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LanApp;
+			};
+			name = Debug;
+		};
+		C40F72BE2DF79F770060D23B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wafflessyrup.LanAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LanApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C40F728D2DF79F750060D23B /* Build configuration list for PBXProject "LanApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C40F72B42DF79F770060D23B /* Debug */,
+				C40F72B52DF79F770060D23B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C40F72B62DF79F770060D23B /* Build configuration list for PBXNativeTarget "LanApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C40F72B72DF79F770060D23B /* Debug */,
+				C40F72B82DF79F770060D23B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C40F72B92DF79F770060D23B /* Build configuration list for PBXNativeTarget "LanAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C40F72BA2DF79F770060D23B /* Debug */,
+				C40F72BB2DF79F770060D23B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C40F72BC2DF79F770060D23B /* Build configuration list for PBXNativeTarget "LanAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C40F72BD2DF79F770060D23B /* Debug */,
+				C40F72BE2DF79F770060D23B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C40AD8D22E135B76007EAA8C /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C40AD8D32E135B76007EAA8C /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C40AD8D22E135B76007EAA8C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		C40AD8D52E135B76007EAA8C /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C40AD8D22E135B76007EAA8C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		C40AD8D72E135B76007EAA8C /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C40AD8D22E135B76007EAA8C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		C40AD8D92E135B76007EAA8C /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C40AD8D22E135B76007EAA8C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		C40AD8DB2E135B76007EAA8C /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C40AD8D22E135B76007EAA8C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		C4B079F12E135EA30049DE8A /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C40AD8D22E135B76007EAA8C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = C40F728A2DF79F750060D23B /* Project object */;
+}
