@@ -17,7 +17,7 @@ struct RegisterView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Register")
+            Text("Sign Up!")
                 .font(.largeTitle)
                 .bold()
                 .foregroundColor(.white)
@@ -44,8 +44,9 @@ struct RegisterView: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.green)
-                    .cornerRadius(8)
+                    .background(Color(red: 0.12, green: 0.12, blue: 0.12))
+                    .cornerRadius(24)
+                    .fontWeight(.bold)
             }
 
             if !errorMessage.isEmpty {
@@ -55,10 +56,17 @@ struct RegisterView: View {
                     .padding(.top, 10)
             }
 
-            Button("Back to Login") {
+            Button(action: {
                 presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("Back to Login")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(red: 0.12, green: 0.12, blue: 0.12))
+                    .cornerRadius(24)
+                    .fontWeight(.bold)
             }
-            .foregroundColor(.green)
 
         }
         .padding()

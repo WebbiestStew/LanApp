@@ -5,10 +5,11 @@ struct LoginPageView: View {
     @Binding var isLoggedIn: Bool
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var showRegister = false
+    // Removed showRegister state
 
     var body: some View {
-        VStack(spacing: 20) {
+        NavigationStack {
+            VStack(spacing: 20) {
             // Title
             Text("Sign In")
                 .font(.largeTitle)
@@ -16,16 +17,20 @@ struct LoginPageView: View {
                 .foregroundColor(.white)
 
             // Email Field
-            TextField("you@email.com", text: $email)
+            TextField("Email", text: $email)
+                .keyboardType(.emailAddress)
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
+                .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
 
             // Password Field
             SecureField("Password", text: $password)
+                .keyboardType(.default)
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
+                .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
 
             // Sign In Button
             Button(action: {
@@ -38,46 +43,65 @@ struct LoginPageView: View {
                     }
                 }
             }) {
-                Text("Sign In")
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.purple)
-                    .cornerRadius(8)
+                HStack {
+                    Image(systemName: "arrow.right.circle.fill")
+                    Text("Sign In")
+                }
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color(red: 0.12, green: 0.12, blue: 0.12))
+                .cornerRadius(24)
+                .fontWeight(.bold)
             }
 
             // Login Methods
             HStack {
                 Button("Use Username") { }
-                    .padding()
-                    .background(Color(.darkGray))
+                    .frame(width: 100, height: 70)
+                    .background(Color(red: 0.12, green: 0.12, blue: 0.12))
                     .foregroundColor(.white)
-                    .cornerRadius(8)
-
+                    .fontWeight(.bold)
+                    .cornerRadius(24)
                 Button("Use Email") { }
-                    .padding()
-                    .background(Color.purple)
+                    .frame(width: 100, height: 70)
+                    .background(Color(red: 0.12, green: 0.12, blue: 0.12))
                     .foregroundColor(.white)
-                    .cornerRadius(8)
-
-                Button("Use Phone Number") { }
-                    .padding()
-                    .background(Color(.darkGray))
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+                    .fontWeight(.bold)
+                    .cornerRadius(24)
+                Button("Use Phone Number") {
+                    // Set phone number input logic
+                    // This is where you would switch the TextField to accept phone input
+                }
+                .frame(width: 100, height: 70)
+                .background(Color(red: 0.12, green: 0.12, blue: 0.12))
+                .foregroundColor(.white)
+                .fontWeight(.bold)
+                .cornerRadius(24)
             }
 
             // Navigation
-            Button("Go to Register Form") {
-                showRegister = true
-            }
-            .foregroundColor(.green)
-            .sheet(isPresented: $showRegister) {
-                RegisterView()
+            NavigationLink(destination: RegisterView()) {
+                HStack {
+                    Image(systemName: "person.badge.plus")
+                    Text("Register")
+                        .fontWeight(.bold)
+                }
+                .foregroundColor(.white)
+                .padding()
+                .background(Color(red: 0.12, green: 0.12, blue: 0.12))
+                .cornerRadius(24)
             }
 
-            Button("Forgot Password?") { }
-                .foregroundColor(.purple)
+            NavigationLink(destination: ForgotPasswordView()) {
+                Text("Forgot Password?")
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(24)
+            }
 
             // Call-to-Action Button
             Button(action: {
@@ -92,9 +116,60 @@ struct LoginPageView: View {
                     .padding(.top, 30)
             }
 
+            }
+            .padding()
+            .background(Color.black.edgesIgnoringSafeArea(.all))
+        }
+    }
+}
+
+//forgot password view
+struct ForgotPasswordView: View {
+    @State private var resetEmail: String = ""
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Forgot Password")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            Text("No problem!")
+                .font(.headline)
+                .fontWeight(.bold)
+            Text("Enter your email and we’ll send you a reset link.")
+                .multilineTextAlignment(.center)
+                .padding()
+
+            TextField("Email", text: $resetEmail)
+                .keyboardType(.emailAddress)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
+                .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+
+            Button(action: {
+                Task {
+                    do {
+                        try await SupabaseManager.shared.client.auth.resetPasswordForEmail(resetEmail)
+                        print("Reset link sent.")
+                    } catch {
+                        print("Failed to send reset link: \(error.localizedDescription)")
+                    }
+                }
+            }) {
+                Text("Send Reset Link")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(red: 0.12, green: 0.12, blue: 0.12))
+                    .cornerRadius(24)
+                    .fontWeight(.bold)
+            }
+
+            Spacer()
         }
         .padding()
         .background(Color.black.edgesIgnoringSafeArea(.all))
+        .foregroundColor(.white)
     }
 }
 
