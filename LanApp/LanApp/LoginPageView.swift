@@ -11,10 +11,11 @@ struct LoginPageView: View {
         NavigationStack {
             VStack(spacing: 20) {
             // Title
-            Text("Sign In")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
+            Text("LanApp")
+                .font(.custom("Copperplate", size: 40))
+                .fontWeight(.black)
+                .foregroundColor(.green)
+                .padding(.bottom, 10)
 
             // Email Field
             TextField("Email", text: $email)
